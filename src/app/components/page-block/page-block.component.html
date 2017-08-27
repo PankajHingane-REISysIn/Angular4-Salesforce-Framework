@@ -1,0 +1,8 @@
+<ngl-section [(open)]="expandBlock" [title]="fieldMetadata.pageBlockTitle">
+  <div *ngIf="fieldMetadata.blockType == 'Fields'"> 
+  	<app-field *ngFor="let field of fieldMetadata.fields" [fieldMetadata]="field" [objectAPIName]="objectAPIName" [recordObj]="recordObj"></app-field>
+  </div>
+  <div *ngIf="fieldMetadata.blockType == 'Table'">
+  	<app-table></app-table>
+  </div>
+</ngl-section>

@@ -1,0 +1,12 @@
+<table ngl-datatable [data]="data" trackByKey="Id" [loading]="loading" [(sort)]="sort" (sortChange)="onSort($event)"
+  (onRowClick)="onRowClick($event)" class="slds-max-medium-table--stacked-horizontal">
+  <!--*ngFor="let columnInfo of columnsInfo;-->
+  <ngl-datatable-column *ngFor="let columnInfo of columnsInfo" [heading]="columnInfo.fieldLabel" [key]="columnInfo.fieldAPIName" [sortable] =columnInfo.isSortable></ngl-datatable-column>
+  <!-- Loading overlay -->
+  <template nglLoadingOverlay>
+    <div class="slds-box slds-box--small slds-theme--shade slds-text-align--center">Loading...</div>
+  </template>
+
+  <!-- No rows overlay -->
+  <template nglNoRowsOverlay *ngIf="!loading">No Records Found.</template>
+</table>
