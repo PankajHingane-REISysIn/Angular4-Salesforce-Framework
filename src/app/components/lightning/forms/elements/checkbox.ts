@@ -6,7 +6,7 @@ import {NglFormLabelTemplate} from '../form-label';
 @Component({
   selector: 'ngl-form-checkbox',
   moduleId: module.id,
-  templateUrl: './checkbox.pug',
+  templateUrl: 'checkbox.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[class.slds-form-element]': 'true',

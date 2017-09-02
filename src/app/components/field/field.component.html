@@ -4,7 +4,7 @@
 
 
 <ngl-form-element *ngIf="fieldMetadata.dataType =='TEXTAREA'" [error]="hasError ? error : null" class="slds-m-top--small">
-  <template nglFormLabel><i>{{fieldMetadata.label}}</i> <span *ngIf="required">(<b>required</b>!)</span></template>
+  <ng-template nglFormLabel><i>{{fieldMetadata.label}}</i> <span *ngIf="required">(<b>required</b>!)</span></ng-template>
   <textarea nglFormControl placeholder="Placeholder Text" [required]="required" [(ngModel)]="recordObj[fieldMetadata.fieldAPIName]"></textarea>
 </ngl-form-element>
 
@@ -21,12 +21,12 @@
 </ngl-form-checkbox>
 
 <ngl-lookup *ngIf="fieldMetadata.dataType =='REFERENCE'" [(value)]="recordObj[fieldMetadata.fieldAPIName]" [lookup]="lookupAsync" field="Name" [(pick)]="address">
-  <template nglLookupLabel>{{fieldMetadata.label}}</template>
+  <ng-template nglLookupLabel>{{fieldMetadata.label}}</ng-template>
   <div nglLookupHeader class="slds-text-body--small">Most relevant Search</div>
-  <template nglLookupItem let-ctx>
+  <ng-template nglLookupItem let-ctx>
     <div class="slds-media__body">
       <div class="slds-lookup__result-text">{{ctx.Name}}</div>
       <span class="slds-lookup__result-meta slds-text-body--small">ID: {{ctx.Id}}</span>
     </div>
-  </template>
+  </ng-template>
 </ngl-lookup>
