@@ -50,23 +50,20 @@ module.exports = function(gulp, config) {
 
 	gulp.task('tempgen:node_modules', () => {
 		return gulp.src([
-			'node_modules/@angular/**/bundles/*.umd.js',
-			//'node_modules/@angular/**/bundles/*.js.map',
-			'node_modules/rxjs/**/*.js',
-			//'node_modules/rxjs/**/*.map',
-			'node_modules/jsforce/build/jsforce.min.js',
+			//'node_modules/@angular/**/bundles/*.umd.js',
+			//'node_modules/rxjs/**/*.js',
+			//'node_modules/jsforce/build/jsforce.min.js',
 			'node_modules/core-js/client/shim.min.js',
 			'node_modules/zone.js/dist/zone.js',
 			'node_modules/reflect-metadata/Reflect.js',
-			'node_modules/systemjs/dist/system.src.js', 
-			'node_modules/moment/min/moment.min.js',
-			'node_modules/moment/min/moment.min.js',
-			'node_modules/tether/dist/js/tether.min.js',
+			//'node_modules/systemjs/dist/system.src.js', 
+			//'node_modules/moment/min/moment.min.js',
+			//'node_modules/moment/min/moment.min.js',
+			//'node_modules/tether/dist/js/tether.min.js',
 			'node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.min.css',
 			'node_modules/@salesforce-ux/design-system/assets/fonts/webfonts/*.woff',
 			'node_modules/@salesforce-ux/design-system/assets/fonts/webfonts/*.woff2',
-			'node_modules/ng-lightning/bundles/ng-lightning.umd.js',
-			//'node_modules/crypto-js/crypto-js.js',
+			//'node_modules/ng-lightning/bundles/ng-lightning.umd.js',
 			'node_modules/lodash/lodash.min.js'
 		], { base: 'node_modules' })
 			.pipe(gulp.dest(`.tmp/static_resources/${config.resources.node_module_resource_name}`));
