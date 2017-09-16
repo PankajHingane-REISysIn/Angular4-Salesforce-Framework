@@ -1,32 +1,34 @@
-<ngl-form-element *ngIf="fieldMetadata.dataType =='STRING'" [label]="fieldMetadata.label" [error]="hasError ? error : null" class="slds-m-top--small">
-	<input nglFormControl type="text" [placeholder]="fieldMetadata.label" [required]="required" [(ngModel)]="recordObj[fieldMetadata.fieldAPIName]" >
-</ngl-form-element>
+<div class="slds-size_1-of-3">
+    <ngl-form-element *ngIf="fieldMetadata.dataType =='STRING'" [label]="fieldMetadata.label" [error]="hasError ? error : null" class="slds-m-top--small">
+    	<input nglFormControl type="text" [placeholder]="fieldMetadata.label" [required]="required" [(ngModel)]="recordObj[fieldMetadata.fieldAPIName]" >
+    </ngl-form-element>
 
 
-<ngl-form-element *ngIf="fieldMetadata.dataType =='TEXTAREA'" [error]="hasError ? error : null" class="slds-m-top--small">
-  <ng-template nglFormLabel><i>{{fieldMetadata.label}}</i> <span *ngIf="required">(<b>required</b>!)</span></ng-template>
-  <textarea nglFormControl placeholder="Placeholder Text" [required]="required" [(ngModel)]="recordObj[fieldMetadata.fieldAPIName]"></textarea>
-</ngl-form-element>
+    <ngl-form-element *ngIf="fieldMetadata.dataType =='TEXTAREA'" [error]="hasError ? error : null" class="slds-m-top--small">
+      <ng-template nglFormLabel><i>{{fieldMetadata.label}}</i> <span *ngIf="required">(<b>required</b>!)</span></ng-template>
+      <textarea nglFormControl placeholder="Placeholder Text" [required]="required" [(ngModel)]="recordObj[fieldMetadata.fieldAPIName]"></textarea>
+    </ngl-form-element>
 
-<ngl-form-element *ngIf="fieldMetadata.dataType =='PICKLIST'" [label]="fieldMetadata.label" [error]="hasError ? error : null" class="slds-m-top--small">
-  <select nglFormControl class="slds-select" [required]="required" [(ngModel)]="recordObj[fieldMetadata.fieldAPIName]">
-    <option>Option One</option>
-    <option>Option Two</option>
-    <option>Option Three</option>
-  </select>
-</ngl-form-element>
+    <ngl-form-element *ngIf="fieldMetadata.dataType =='PICKLIST'" [label]="fieldMetadata.label" [error]="hasError ? error : null" class="slds-m-top--small">
+      <select nglFormControl class="slds-select" [required]="required" [(ngModel)]="recordObj[fieldMetadata.fieldAPIName]">
+        <option>Option One</option>
+        <option>Option Two</option>
+        <option>Option Three</option>
+      </select>
+    </ngl-form-element>
 
-<ngl-form-checkbox *ngIf="fieldMetadata.dataType =='BOOLEAN'" [label]="fieldMetadata.label" [error]="hasError ? error : null" class="slds-m-top--small">
-  <input nglFormControl type="checkbox" [required]="required" [(ngModel)]="recordObj[fieldMetadata.fieldAPIName]"/>
-</ngl-form-checkbox>
+    <ngl-form-checkbox *ngIf="fieldMetadata.dataType =='BOOLEAN'" [label]="fieldMetadata.label" [error]="hasError ? error : null" class="slds-m-top--small">
+      <input nglFormControl type="checkbox" [required]="required" [(ngModel)]="recordObj[fieldMetadata.fieldAPIName]"/>
+    </ngl-form-checkbox>
 
-<ngl-lookup *ngIf="fieldMetadata.dataType =='REFERENCE'" [(value)]="recordObj[fieldMetadata.fieldAPIName]" [lookup]="lookupAsync" field="Name" [(pick)]="address">
-  <ng-template nglLookupLabel>{{fieldMetadata.label}}</ng-template>
-  <div nglLookupHeader class="slds-text-body--small">Most relevant Search</div>
-  <ng-template nglLookupItem let-ctx>
-    <div class="slds-media__body">
-      <div class="slds-lookup__result-text">{{ctx.Name}}</div>
-      <span class="slds-lookup__result-meta slds-text-body--small">ID: {{ctx.Id}}</span>
-    </div>
-  </ng-template>
-</ngl-lookup>
+    <ngl-lookup *ngIf="fieldMetadata.dataType =='REFERENCE'" [(value)]="recordObj[fieldMetadata.fieldAPIName]" [lookup]="lookupAsync" field="Name" [(pick)]="address">
+      <ng-template nglLookupLabel>{{fieldMetadata.label}}</ng-template>
+      <div nglLookupHeader class="slds-text-body--small">Most relevant Search</div>
+      <ng-template nglLookupItem let-ctx>
+        <div class="slds-media__body">
+          <div class="slds-lookup__result-text">{{ctx.Name}}</div>
+          <span class="slds-lookup__result-meta slds-text-body--small">ID: {{ctx.Id}}</span>
+        </div>
+      </ng-template>
+    </ngl-lookup>
+</div>
