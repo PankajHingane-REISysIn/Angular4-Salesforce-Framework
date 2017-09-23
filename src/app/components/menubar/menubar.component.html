@@ -1,11 +1,11 @@
-<!--<a href="javascript:void(0);" class="slds-context-bar__label-action" title="test" routerLink="/table">
+<!--<a class="slds-context-bar__label-action" title="test"  (click)="navigateTOMenu('a027F000003pgv7')">
   <span class="slds-truncate" title="Menu Item">test</span>
 </a>
 
-<a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item" routerLink="/view" [queryParams]="{layoutId: 'a027F000003pgv7'}">
+<a class="slds-context-bar__label-action" title="Menu Item" [routerLink]="['/view']" [queryParams]="{layoutId: 'a027F000003pgv7'}">
   <span class="slds-truncate" title="Menu Item">test1</span>
-</a>
--->
+</a>-->
+
 
 <div class="slds-context-bar">
   <div class="slds-context-bar__primary slds-context-bar__item_divider-right">
@@ -27,7 +27,7 @@
       
       <li *ngFor="let menuInfo of menuOptions" class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_hover slds-context-bar__item_divider-right">
         
-        <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item" routerLink="/view" [queryParams]="{layoutId: menuInfo.layoutId}">
+        <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item" [routerLink]="['/view']" [queryParams]="{layoutId: menuInfo.layoutId}">
           <span class="slds-truncate" title="Menu Item">{{menuInfo.Name}}</span>
         </a>
         <div class="slds-context-bar__icon-action slds-p-left_none slds-context-bar__item_divider-right">

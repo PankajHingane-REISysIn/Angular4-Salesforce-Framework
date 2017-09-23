@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SalesforceService } from '../../services/salesforce.service';
 import { LoggerService } from '../../services/logger.service';
 import {SalesforceResolver} from '../../resolves/salesforce.resolver';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -12,15 +13,24 @@ import {SalesforceResolver} from '../../resolves/salesforce.resolver';
 })
 export class MenubarComponent implements OnInit {
 	menuOptions = [];
-  constructor(private sfdc: SalesforceService, private log: LoggerService) { 
+  constructor(private sfdc: SalesforceService, private log: LoggerService, private route: ActivatedRoute, private router: Router) { 
+    
   }
 
   ngOnInit() {
   	let isLocal =  (<any>window).local;
-     if(isLocal != true) {
-        this.getConfigData();
-      }
+    
+    if(isLocal != true) {
+      this.getConfigData();
+    }
+
+
   	
+  }
+
+  navigateTOMenu(layoutId) {
+      console.log('layoutId----', layoutId);
+      this.router.navigate(['view'], {relativeTo:this.route}); //, { queryParams: { layoutId: layoutId } }
   }
 
   getConfigData() {

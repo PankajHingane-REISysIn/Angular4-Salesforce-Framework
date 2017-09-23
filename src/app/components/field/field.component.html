@@ -1,4 +1,3 @@
-<div class="slds-size_1-of-3">
     <ngl-form-element *ngIf="fieldMetadata.dataType =='STRING'" [label]="fieldMetadata.label" [error]="hasError ? error : null" class="slds-m-top--small">
     	<input nglFormControl type="text" [placeholder]="fieldMetadata.label" [required]="required" [(ngModel)]="recordObj[fieldMetadata.fieldAPIName]" >
     </ngl-form-element>
@@ -31,4 +30,3 @@
         </div>
       </ng-template>
     </ngl-lookup>
-</div>

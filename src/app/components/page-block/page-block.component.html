@@ -1,7 +1,7 @@
 <ngl-section [(open)]="expandBlock" [title]="fieldMetadata.pageBlockTitle">
   <div class="demo-only demo-only--sizing slds-grid slds-wrap">
 	  <ng-container *ngIf="fieldMetadata.blockType == 'Fields'"> 
-	  	<app-field *ngFor="let field of fieldMetadata.fields" [fieldMetadata]="field" [objectAPIName]="objectAPIName" [recordObj]="recordObj"></app-field>
+	  	<app-field class="slds-size_1-of-3" *ngFor="let field of fieldMetadata.fields" [fieldMetadata]="field" [objectAPIName]="objectAPIName" [recordObj]="recordObj"></app-field>
 	  </ng-container>
   </div>
   <div *ngIf="fieldMetadata.blockType == 'Table'">

@@ -21,6 +21,11 @@ export class LayoutComponent implements OnInit, OnDestroy {
   constructor(private sfdc: SalesforceService, private log: LoggerService, private route: ActivatedRoute) { 
 
     this.queryParams = this.route.snapshot.queryParams;
+    console.log('In constructir');
+    route.params.forEach(params => {
+     // myInit(params['paramId']);
+     this.ngOnInit();
+    });
 
   }
 
@@ -51,7 +56,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    //this.sub.unsubscribe();
   }
 
 }
